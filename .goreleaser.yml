@@ -1,0 +1,13 @@
+# .goreleaser.yml
+project_name: finance-proto
+builds:
+  - skip: true
+  - env: [CGO_ENABLED=0]
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    id: 'finance-proto'
