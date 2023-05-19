@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+option go_package = "grpc-finance-app/proto";
+
+message FinanceRes{
+   int32 page = 1; 
+   int32 pageSize = 2;
+   google.protobuf.Any data = 3;
+}
+
+message FinanceReq{
+    int64 userId = 1;
+}
+
+message IncomeReq{
+    double amount = 1;
+    google.protobuf.Timestamp date = 2;
+    int32 accountId = 3;
+    int32 categoryId = 4;
+    string note = 5;
+    int32 currencyId= 6;
+
+}
+
+message ExpenseReq{
+    double amount = 1;
+    google.protobuf.Timestamp date = 2;
+    int32 accountId = 3;
+    int32 categoryId = 4;
+    string note = 5;
+    int32 currencyId= 6;
+}
+
+service Expense{
+    rpc GetFinanceDailyByUserId(FinanceReq) returns (FinanceRes){}
+    rpc GetFinanceMonthlyByUserId(FinanceReq) returns (FinanceRes){}
+    rpc GetFinanceTotalByUserId(FinanceReq) returns (FinanceRes){}
+    rpc AddIncome(IncomeReq) returns (google.protobuf.Empty){}
+    rpc AddExpense(ExpenseReq) returns (google.protobuf.Empty){}
+}
