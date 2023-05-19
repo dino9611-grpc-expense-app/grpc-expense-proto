@@ -14,8 +14,7 @@ permissions:
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
-    builds:
-      - skip: true
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -27,6 +26,8 @@ jobs:
       # More assembly might be required: Docker logins, GPG, etc. It all depends
       # on your needs.
       - uses: goreleaser/goreleaser-action@v4
+        builds:
+          - skip: true
         with:
           # either 'goreleaser' (default) or 'goreleaser-pro':
           distribution: goreleaser
