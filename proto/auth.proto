@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 
-option go_package = "grpc-finance-app/proto";
+option go_package = "github.com/dino9611-grpc-expense-app/grpc-expense-proto/proto";
 
 message User{
     int64 id = 1;

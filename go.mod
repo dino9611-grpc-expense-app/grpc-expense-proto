@@ -1,4 +1,4 @@
-module finance-proto
+module github.com/dino9611-grpc-expense-app/grpc-expense-proto
 
 go 1.19
 
