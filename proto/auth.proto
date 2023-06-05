@@ -7,10 +7,8 @@ message User{
     int64 id = 1;
     string username = 2; 
     string email = 3; 
+    string token = 4;
 }
-
-
-
 
 message UserRegisterReq{
     string username = 1;
